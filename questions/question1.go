@@ -2,6 +2,7 @@ package algorithm
 
 import (
 	"fmt"
+	"sort"
 	"strconv"
 	"strings"
 )
@@ -63,9 +64,9 @@ func Addition1to100even() {
 
 func SmallNumber() {
 
-	numbers := [8]int{8, -96, 2, 3, -9635, 5, 6, 7}
+	numbers := [8]int{8, -96, 2, 3, 5, 6, 7}
 
-	SmallNumber := 100
+	var SmallNumber int
 
 	for i := 0; i < 8; i++ {
 
@@ -152,5 +153,20 @@ func Question9() {
 		list[i] = INT
 
 	}
+
+	var SmallNumber int
+
+	for i := range list {
+
+		if list[i] < SmallNumber {
+			SmallNumber = list[i]
+
+		}
+		sort.Slice(list, func(i, j int) bool {
+			return list[i] < list[j]
+		})
+
+	}
+	fmt.Println("Sorted List:", list)
 
 }
