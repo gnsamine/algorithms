@@ -1,6 +1,8 @@
 package main
 
-import algorithm "example.com/gnsamine/algorithm/questions"
+import (
+	algorithm "example.com/gnsamine/algorithm/questions"
+)
 
 func main() {
 
