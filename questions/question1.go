@@ -63,15 +63,15 @@ func Addition1to100even() {
 
 func SmallNumber() {
 
-	numbers := [8]int{8, 2, 3, 5, 6, 7}
-
-	var SmallNumber int
-
+	numbers := [8]int{8, -1, 2, 3, 5, 6, 7, 9}
+	SmallNumber := numbers[0]
 	for i := 0; i < 8; i++ {
-
-		if numbers[i] < SmallNumber {
-			SmallNumber = numbers[i]
-
+		a := i
+		for j := (i + 1); j < len(numbers); j++ {
+			if numbers[j] < numbers[a] {
+				SmallNumber = numbers[j]
+				a = j
+			}
 		}
 
 	}
@@ -142,7 +142,6 @@ func Question9() {
 	var elements string
 
 	fmt.Scanln(&elements)
-	//fmt.Println(elements)
 
 	Str := strings.Split(elements, ",")
 	list := make([]int, len(Str))
@@ -166,5 +165,34 @@ func Question9() {
 }
 
 func Question10() {
+	fmt.Println("enter your integer elements. Seperate them using ','")
 
+	var elements string
+
+	fmt.Scanln(&elements)
+
+	Str := strings.Split(elements, ",")
+	list := make([]int, len(Str))
+	for i, Str := range Str {
+		INT, _ := strconv.Atoi(strings.TrimSpace(Str))
+		list[i] = INT
+
+	}
+
+	for i := 0; i < len(list); i++ {
+
+		amountOfnumbers := 1
+		response := fmt.Sprintf("amount of number %d:", list[i])
+
+		for j := i + 1; j < len(list); j++ {
+
+			if list[j] == list[i] {
+				amountOfnumbers = (amountOfnumbers + 1)
+				list = append(list[:j], list[j+1:]...)
+				j = j - 1
+			}
+
+		}
+		fmt.Println(response, amountOfnumbers)
+	}
 }

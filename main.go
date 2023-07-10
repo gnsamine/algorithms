@@ -15,6 +15,6 @@ func main() {
 	//algorithm.FindAverages()
 	//algorithm.Notes()
 	//algorithm.Bodymassindex()
-	algorithm.Question9()
-
+	//algorithm.Question9()
+	algorithm.Question10()
 }
